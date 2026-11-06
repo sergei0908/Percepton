@@ -23,21 +23,13 @@ def test_predict_with_fixed_weights() -> None:
     assert model.predict(np.array([0.0, 0.0])) == 0
 
 
-def test_train_separates_linearly_separable_data() -> None:
+def test_train_learns_and_gate() -> None:
     X = np.array([[0.0, 0.0], [0.0, 1.0], [1.0, 0.0], [1.0, 1.0]])
     y = np.array([0, 0, 0, 1])  # logical AND
     model = Perceptron(n_features=2, learning_rate=0.1, epochs=100)
     model.train(X, y)
     assert model.score(X, y) == 1.0
-
-
-def test_train_records_errors_per_epoch() -> None:
-    X = np.array([[0.0, 0.0], [0.0, 1.0], [1.0, 0.0], [1.0, 1.0]])
-    y = np.array([0, 0, 0, 1])
-    model = Perceptron(n_features=2, epochs=100)
-    model.train(X, y)
-    assert len(model.errors_) >= 1
-    assert model.errors_[-1] == 0
+    assert model.errors_[-1] == 0  # last epoch had no mistakes
 
 
 def test_score_is_fraction_of_correct() -> None:

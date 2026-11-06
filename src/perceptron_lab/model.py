@@ -17,7 +17,7 @@ class Perceptron:
         if n_features <= 0:
             raise ValueError("parameter n_features must be positive")
         if learning_rate <= 0:
-            raise ValueError("parameter learning_rate be positive")
+            raise ValueError("parameter learning_rate must be positive")
         if epochs <= 0:
             raise ValueError("parameter epochs must be positive")
 
