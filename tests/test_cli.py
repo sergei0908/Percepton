@@ -24,7 +24,6 @@ def test_cli_overlapping_clouds_not_perfect(capsys: pytest.CaptureFixture[str]) 
     assert "Точность: 1.000" not in out
 
 
-
 def test_cli_iris_setosa(capsys: pytest.CaptureFixture[str]) -> None:
     main(["--iris", "setosa", "--epochs", "100"])
     out = capsys.readouterr().out

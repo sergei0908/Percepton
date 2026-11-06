@@ -8,6 +8,7 @@ import numpy as np
 
 from perceptron_lab.model import FloatArray, IntArray
 
+
 def make_blobs(
     n_per_class: int = 50,
     centers: tuple[tuple[float, float], tuple[float, float]] = (
