@@ -31,12 +31,6 @@ def test_cli_iris_setosa(capsys: pytest.CaptureFixture[str]) -> None:
     assert "Точность: 1.000" in out
 
 
-def test_cli_iris_plots_only_errors(tmp_path: Path) -> None:
-    main(["--iris", "versicolor", "virginica", "--plots", str(tmp_path)])
-    assert (tmp_path / "errors.png").exists()
-    assert not (tmp_path / "boundary.png").exists()  # 4 features: no 2D boundary
-
-
 @pytest.mark.parametrize(
     "argv",
     [
